@@ -103,6 +103,16 @@ app.get("/missingPerson", ensureAuthenticated, function (req, res) {
   });
 });
 
+app.get("/article/view", ensureAuthenticated, async function (req, res) {
+  try {
+    const articles = await Article.find().populate("author");
+    res.render("view_article", { articles });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 // Route Files
 let articles = require("./routes/articles");
 let person = require("./routes/person");
