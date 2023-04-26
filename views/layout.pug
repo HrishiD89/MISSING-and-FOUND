@@ -1,0 +1,60 @@
+doctype html
+html
+	head
+		title MISSING & FOUND
+		meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		link(rel='icon' href='/images/logo.png' type='image/gif' style="border-radius:50%" sizes='20x20')
+		link(rel="stylesheet" href="/css/style.css")
+		link(rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css")
+		link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous')
+
+	body.bg4
+		nav(style="background-color:black").navbar.navbar-expand-lg.navbar-dark
+			a.navbar-brand(href='/' style="font-size:24px").px-5.py-3 MISSING & FOUND
+			button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarsExample07XL' aria-controls='navbarsExample07XL' aria-expanded='false' aria-label='Toggle navigation')
+				span.navbar-toggler-icon
+			#navbarsExample07XL.collapse.navbar-collapse
+				ul.navbar-nav.mr-auto
+					li.nav-item.active
+						a.py-3.nav-link(href='/')
+							| HOME
+							span.sr-only (current)
+					if user
+						li.nav-item
+							a.py-3.nav-link(href='/articles/add') ADD ARTICLE
+						li.nav-item
+							a.py-3.nav-link(href='/person/add/missing') MISSING REPORT
+						li.nav-item
+							a.py-3.nav-link(href='/person/edit/missing/'+user._id ) EDIT REPORT
+						li.nav-item
+							a.py-3.nav-link(href="#") SERVICES
+						li.nav-item
+							a.py-3.nav-link(href="#") ABOUT
+					else
+						li.nav-item
+							a.py-3.nav-link(href='/users/register') REGISTER
+						li.nav-item
+							a.py-3.nav-link(href='/users/login') LOGIN
+				ul.navbar-nav.ml-auto
+					li.nav-item.dropdown(style="background-color:#028aa8").mr-5.rounded-pill
+						a#dropdown07XL.nav-link.dropdown-toggle.px-4(href='#' data-toggle='dropdown' aria-expanded='false') Account
+						.dropdown-menu(aria-labelledby='dropdown07XL')
+							a.dropdown-item(href='/users/profile') Profile
+							a.dropdown-item(href='/users/logout') Logout
+
+
+		#header
+			block header
+		.container#page_container
+			!= messages('message', locals)
+			if errors
+				each error, i in errors
+					div(class="alert alert-danger") #{error.msg}
+			block content
+			br
+		footer.p-4(style="background-color:#05647ebd") 
+			p(style="margin:0") Copyright &copy; 2023 MISSING & FOUND
+		script(src="/bower_components/jquery/dist/jquery.js")
+		script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
+		script(src="/js/main.js")
+
