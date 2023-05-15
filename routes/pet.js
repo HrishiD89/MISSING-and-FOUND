@@ -128,6 +128,17 @@ router.post(
     }
   }
 );
+
+// Load Individual Person Edit Form
+router.get("/editPet/:id", ensureAuthenticated, function (req, res) {
+  Pet.findById(req.params.id, function (err, pet) {
+    res.render("edit_pet", {
+      pet: pet,
+      title: "Edit Pet",
+    });
+  });
+});
+
 // Access Control
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {

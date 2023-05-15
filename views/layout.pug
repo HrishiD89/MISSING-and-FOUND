@@ -24,10 +24,16 @@ html
 							a.py-3.nav-link(href='/articles/add') ADD ARTICLE
 						li.nav-item
 							a.py-3.nav-link(href='/article/view') VIEW ARTICLE
-						li.nav-item
-							a.py-3.nav-link(href='/person/add/missing') MISSING REPORT
-						li.nav-item
-							a.py-3.nav-link(href='/pet/add/missingPet') MISSING REPORT PET
+						//- li.nav-item
+						//- 	a.py-3.nav-link(href='/person/add/missing') MISSING REPORT
+						//- li.nav-item
+						//- 	a.py-3.nav-link(href='/pet/add/missingPet') MISSING REPORT PET
+						li.nav-item.dropdown
+							a.py-3.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+								| MISSING REPORTS
+							.dropdown-menu(aria-labelledby="navbarDropdown")
+								a.py-2.dropdown-item(href="/person/add/missing") MISSING PERSON REPORT
+								a.py-2.dropdown-item(href="/pet/add/missingPet") MISSING PET REPORT
 						li.nav-item
 							a.py-3.nav-link(href='/person/edit/missing/'+user._id ) EDIT REPORT
 						li.nav-item

@@ -8,6 +8,7 @@ const { check, validationResult } = require("express-validator");
 let User = require("../models/user");
 // Bring in Person Model
 let Person = require("../models/person");
+let Pet = require("../models/pet");
 
 // Set The Storage Engine
 const storage = multer.diskStorage({
@@ -132,24 +133,43 @@ router.post(
   }
 );
 
-// Edit Missing Person1
-router.get("/edit/missing/:id", ensureAuthenticated, function (req, res) {
-  Person.find({ Author: req.params.id }, (err, person) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("edit_person1", {
-        person: person,
-        user: req.user,
-      });
-    }
-  });
+// router.get("/edit/missing/:id", ensureAuthenticated, function (req, res) {
+//   Person.find({ Author: req.params.id }, (err, person) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       res.render("edit_person1", {
+//         person: person,
+//         user: req.user,
+//       });
+//     }
+//   });
+// });
+
+// Edit Missing Person1 and PET
+
+router.get("/edit/missing/:id", ensureAuthenticated, async function (req, res) {
+  try {
+    const [pet, person] = await Promise.all([
+      Pet.find({ Author: req.params.id }).exec(),
+      Person.find({ Author: req.params.id }).exec(),
+    ]);
+
+    res.render("edit_report", {
+      pet: pet,
+      person: person,
+      user: req.user,
+    });
+  } catch (err) {
+    console.log(err);
+    res.redirect("/");
+  }
 });
 
 // Load Individual Person Edit Form
 router.get("/edit/:id", ensureAuthenticated, function (req, res) {
   Person.findById(req.params.id, function (err, person) {
-    res.render("edit_person2", {
+    res.render("edit_person", {
       person: person,
       title: "Edit Person",
     });
@@ -197,7 +217,7 @@ router.post(
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      res.render("edit_person2", {
+      res.render("edit_person", {
         errors: errors.array(),
         user: req.user,
       });
