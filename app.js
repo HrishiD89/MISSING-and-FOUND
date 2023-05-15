@@ -10,7 +10,10 @@ const passport = require("passport");
 // Bring in Person Model
 let Person = require("./models/person");
 
-mongoose.connect(config.database);
+mongoose.connect(config.database, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 let db = mongoose.connection;
 
 // Check connection
@@ -45,6 +48,7 @@ app.use(function (req, res, next) {
 
 // Bring in Models
 let Article = require("./models/article");
+let User = require("./models/user");
 
 // Load View Engine
 app.set("views", path.join(__dirname, "views"));
@@ -105,8 +109,12 @@ app.get("/missingPerson", ensureAuthenticated, function (req, res) {
 
 app.get("/article/view", ensureAuthenticated, async function (req, res) {
   try {
-    const articles = await Article.find().populate("author");
-    res.render("view_article", { articles });
+    const articles = await Article.find();
+    const users = await User.find();
+    const articleAuthors = {};
+    users.forEach((user) => (articleAuthors[user._id] = user.name));
+    console.log(articleAuthors);
+    res.render("view_article", { articles, articleAuthors });
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal Server Error");
