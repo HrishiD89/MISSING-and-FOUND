@@ -9,10 +9,10 @@ block content
 		div(class="alert alert-danger") #{Photoerror}
 	h1 Add Missing Person
 	.f-container.p-4
-		form(method='POST', action='/person/missing/'+user._id enctype="multipart/form-data")
+		form(method='POST' action='/person/missing/'+user._id enctype="multipart/form-data")
 			#form-group
 				label Name*:
-				input.form-control(name="name", type='text')
+				input.form-control(name="name" type='text')
 			#form-group
 				label Gender*:
 				select.form-control(name="gender")
@@ -33,13 +33,13 @@ block content
 					option(value="mesomorph") Mesomorph
 			#form-group
 				label Age (years)*:
-				input.form-control(name="age", type='number' value=22)
+				input.form-control(name="age" type='number' value=22)
 			#form-group
 				label Weight (Kg):
-				input.form-control(name="weight", type='number' value=55)
+				input.form-control(name="weight" type='number' value=55)
 			#form-group
 				label Height (cm)*:
-				input.form-control(name="height", type='number' value=150)
+				input.form-control(name="height" type='number' value=150)
 			#form-group
 				label Skin Color*:
 				select.form-control(name="skinColor")
@@ -71,13 +71,13 @@ block content
 					option(value="bold") Bold
 			#form-group
 				label Country*:
-				input.form-control(name="country", type='text')
+				input.form-control(name="country" type='text')
 			#form-group
 				label City*:
-				input.form-control(name="city", type='text')
+				input.form-control(name="city" type='text')
 			#form-group
 				label Date of Missing:
-				input.form-control(name="dateOfMissing", type='date')
+				input.form-control(name="dateOfMissing" type='date')
 			#form-group
 				label Current Status*:
 				select.form-control(name="currentStatus")
@@ -88,10 +88,10 @@ block content
 				textarea.form-control(name="description")
 			.form-group
 				label Image
-				input#input-files.form-control-file.border(type='file', name='file')
+				input#input-files.form-control-file.border(type='file' name='file')
 			.row
 				.col-sm-12
 					.preview-images
 						img#Profile_Image
 			br
-			input.btn.btn-primary(type='submit',value='Submit')
+			input.btn.btn-primary(type='submit' value='Submit')

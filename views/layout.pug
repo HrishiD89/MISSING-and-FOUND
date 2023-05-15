@@ -9,9 +9,9 @@ html
 		link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous')
 
 	body.bg4
-		nav(style="background-color:black").navbar.navbar-expand-lg.navbar-dark
-			a.navbar-brand(href='/' style="font-size:24px").px-5.py-3 MISSING & FOUND
-			button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarsExample07XL' aria-controls='navbarsExample07XL' aria-expanded='false' aria-label='Toggle navigation')
+		nav.navbarResponsive(style="background-color:black").navbar.navbar-expand-lg.navbar-dark
+			a.navbar-brand(href='/' style="font-size:24px") MISSING & FOUND
+			button.nav-tbtn.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarsExample07XL' aria-controls='navbarsExample07XL' aria-expanded='false' aria-label='Toggle navigation')
 				span.navbar-toggler-icon
 			#navbarsExample07XL.collapse.navbar-collapse
 				ul.navbar-nav.mr-auto
@@ -26,6 +26,8 @@ html
 							a.py-3.nav-link(href='/article/view') VIEW ARTICLE
 						li.nav-item
 							a.py-3.nav-link(href='/person/add/missing') MISSING REPORT
+						li.nav-item
+							a.py-3.nav-link(href='/pet/add/missingPet') MISSING REPORT PET
 						li.nav-item
 							a.py-3.nav-link(href='/person/edit/missing/'+user._id ) EDIT REPORT
 						li.nav-item

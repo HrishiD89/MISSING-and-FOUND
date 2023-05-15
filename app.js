@@ -124,9 +124,11 @@ app.get("/article/view", ensureAuthenticated, async function (req, res) {
 // Route Files
 let articles = require("./routes/articles");
 let person = require("./routes/person");
+let pet = require("./routes/pet");
 let users = require("./routes/users");
 app.use("/articles", articles);
 app.use("/person", person);
+app.use("/pet", pet);
 app.use("/users", users);
 
 // Access Control
