@@ -17,6 +17,10 @@ block content
 					td Missing Person Added
 					td
 						span.badge.badge-pill.badge-info #{user.MissingPerson}
+				tr
+					td Missing Pet Added
+					td
+						span.badge.badge-pill.badge-info #{user.MissingPet}
 		form(method='POST' action='/users/profile/'+user._id enctype="multipart/form-data")
 			#form-group
 				label Name*:

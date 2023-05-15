@@ -107,15 +107,15 @@ router.post(
         Description: description,
         Author: req.user._id,
       });
-      //   let query = { _id: req.params.id };
-      //   let userUpdate = {};
-      //   userUpdate.MissingPet = req.user.MissingPet + 1;
-      //   User.update(query, userUpdate, function (err) {
-      //     if (err) {
-      //       console.log(err);
-      //       return;
-      //     }
-      //   });
+      let query = { _id: req.params.id };
+      let userUpdate = {};
+      userUpdate.MissingPet = req.user.MissingPet + 1;
+      User.update(query, userUpdate, function (err) {
+        if (err) {
+          console.log(err);
+          return;
+        }
+      });
       newPet.save(function (err) {
         if (err) {
           console.log(err);

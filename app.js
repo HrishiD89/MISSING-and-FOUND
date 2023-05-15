@@ -9,6 +9,7 @@ const passport = require("passport");
 
 // Bring in Person Model
 let Person = require("./models/person");
+let Pet = require("./models/pet");
 
 mongoose.connect(config.database, {
   useNewUrlParser: true,
@@ -101,6 +102,22 @@ app.get("/missingPerson", ensureAuthenticated, function (req, res) {
       Article.find({}, function (err, articles) {
         res.render("Person", {
           person: person,
+        });
+      });
+    }
+  });
+});
+
+// Pet.pug
+app.get("/missingPet", ensureAuthenticated, function (req, res) {
+  Pet.find({}, function (err, pet) {
+    if (err) {
+      console.log("Following Errors occurred in Person.find() function: ");
+      console.log(err);
+    } else {
+      Article.find({}, function (err, articles) {
+        res.render("Pet", {
+          pet: pet,
         });
       });
     }
