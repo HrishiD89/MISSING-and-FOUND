@@ -55,10 +55,21 @@ block content
 											span.badge.badge-warning Missing
 										else
 											span.badge.badge-success Found	
-							.card-footer.bg-light
-								a(href="/person/"+person[n]._id style="color:white").btn.btn-primary
-									span.fa.fa-search
-									|  INVESTIGATE
+							//- .card-footer.bg-light
+							//- 	a(href="/person/"+person[n]._id style="color:white").btn.btn-primary
+							//- 		span.fa.fa-search
+							//- 		|  INVESTIGATE
+							-if (user._id.toString() !== person[n].Author.toString())
+								.card-footer.bg-light
+									a(href="/person/"+person[n]._id style="color:white").btn.btn-primary
+										span.fa.fa-search
+										|  INVESTIGATE
+							-else
+								//- .card-footer.bg-light
+								//- 	a(href="/person/"+person[n]._id style="color:white; display: none;").btn.btn-primary
+								//- 		span.fa.fa-search
+								//- 		|  INVESTIGATE
+
 						-var n=n-1;
 				if n > 11
 					while person.length -13 < n
@@ -84,10 +95,20 @@ block content
 												span.badge.badge-warning Missing
 											else
 												span.badge.badge-success Found	
-								.card-footer.bg-light
-									a(href="/person/"+person[n]._id style="color:white").btn.btn-primary
-										span.fa.fa-search
-										|  INVESTIGATE
+								//- .card-footer.bg-light
+								//- 	a(href="/person/"+person[n]._id style="color:white").btn.btn-primary
+								//- 		span.fa.fa-search
+								//- 		|  INVESTIGATE
+								-if (user._id.toString() !== person[n].Author.toString())
+									.card-footer.bg-light
+										a(href="/person/"+person[n]._id style="color:white").btn.btn-primary
+											span.fa.fa-search
+											|  INVESTIGATE
+								-else
+									//- .card-footer.bg-light
+									//- 	a(href="/person/"+person[n]._id style="color:white; display: none;").btn.btn-primary
+									//- 		span.fa.fa-search
+									//- 		|  INVESTIGATE
 						-var n=n-1;
 				else
 					while n >= 0
@@ -113,8 +134,19 @@ block content
 												span.badge.badge-warning Missing
 											else
 												span.badge.badge-success Found	
-								.card-footer.bg-light
-									a(href="/person/"+person[n]._id style="color:white").btn.btn-primary
-										span.fa.fa-search
-										|  INVESTIGATE
+
+								//- .card-footer.bg-light
+								//- 	a(href="/person/"+person[n]._id style="color:white").btn.btn-primary
+								//- 		span.fa.fa-search
+								//- 		|  INVESTIGATE
+								-if (user._id.toString() !== person[n].Author.toString())
+									.card-footer.bg-light
+										a(href="/person/"+person[n]._id style="color:white").btn.btn-primary
+											span.fa.fa-search
+											|  INVESTIGATE
+								-else
+									//- .card-footer.bg-light
+									//- 	a(href="/person/"+person[n]._id style="color:white; display: none;").btn.btn-primary
+									//- 		span.fa.fa-search
+									//- 		|  INVESTIGATE
 						-var n=n-1;

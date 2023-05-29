@@ -92,20 +92,19 @@ app.get("/", ensureAuthenticated, function (req, res) {
   });
 });
 
-// Person.pug
-app.get("/missingPerson", ensureAuthenticated, function (req, res) {
-  Person.find({}, function (err, person) {
-    if (err) {
-      console.log("Following Errors occurred in Person.find() function: ");
-      console.log(err);
-    } else {
-      Article.find({}, function (err, articles) {
-        res.render("Person", {
-          person: person,
-        });
-      });
-    }
-  });
+// Person.pug;
+app.get("/missingPerson", ensureAuthenticated, async function (req, res) {
+  try {
+    const person = await Person.find();
+    const users = await User.find();
+    const personAuthor = {};
+    users.forEach((user) => (personAuthor[user._id] = user.name));
+    console.log(personAuthor);
+    res.render("Person", { person, personAuthor });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 // Pet.pug
@@ -143,6 +142,8 @@ let articles = require("./routes/articles");
 let person = require("./routes/person");
 let pet = require("./routes/pet");
 let users = require("./routes/users");
+const user = require("./models/user");
+const { log } = require("console");
 app.use("/articles", articles);
 app.use("/person", person);
 app.use("/pet", pet);

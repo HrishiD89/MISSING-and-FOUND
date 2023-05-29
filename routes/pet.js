@@ -139,6 +139,91 @@ router.get("/editPet/:id", ensureAuthenticated, function (req, res) {
   });
 });
 
+// Update Missing Pet Process
+router.post(
+  "/editPet/:id",
+  upload,
+  ensureAuthenticated,
+  [
+    check("name", "Name is required").notEmpty(),
+    check("age", "age is required").notEmpty(),
+    check("size", "Size is required").notEmpty(),
+    check("country", "Country is required").notEmpty(),
+    check("city", "City is required").notEmpty(),
+    check("description", "Description is required").notEmpty(),
+  ],
+  function (req, res) {
+    var file;
+    if (req.body.fileCheck != "" && req.file === undefined) {
+      file = path.basename(req.body.fileCheck);
+    } else if (req.file === undefined) {
+      file = "noImage";
+    } else {
+      file = req.file.filename;
+    }
+    const name = req.body.name;
+    const species = req.body.species;
+    const breed = req.body.breed;
+    const gender = req.body.gender;
+    const size = req.body.size;
+    const age = req.body.age;
+    const colors = req.body.colors;
+    const locationLastSeen = req.body.locationLastSeen;
+    const country = req.body.country;
+    const city = req.body.city;
+    const currentStatus = req.body.currentStatus;
+    const description = req.body.description;
+    const file1 = file;
+
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      res.render("edit_pet", {
+        errors: errors.array(),
+        user: req.user,
+      });
+    } else {
+      let updatePet = {};
+      updatePet.Name = name;
+      updatePet.Image = file1;
+      updatePet.Species = species;
+      updatePet.Age = age;
+      updatePet.Breed = breed;
+      updatePet.Size = size;
+      updatePet.Country = country;
+      updatePet.City = city;
+      updatePet.Color = colors;
+      updatePet.LastLocationSeen = locationLastSeen;
+      updatePet.Gender = gender;
+      updatePet.CurrentStatus = currentStatus;
+      updatePet.Description = description;
+
+      let query = { _id: req.params.id };
+      Pet.updateMany(query, updatePet, function (err) {
+        if (err) {
+          console.log(err);
+          return;
+        } else {
+          req.flash("success", "Missing Pet Updated");
+          res.redirect("/person/edit/missing/" + req.user._id);
+        }
+      });
+    }
+  }
+);
+
+// Investigate Page Route
+router.get("/:id", ensureAuthenticated, function (req, res) {
+  Pet.findById(req.params.id, function (err, pet) {
+    User.findById(pet.Author, function (err, user1) {
+      res.render("investigatePet.pug", {
+        pet: pet,
+        user1: user1,
+      });
+    });
+  });
+});
+
 // Access Control
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {

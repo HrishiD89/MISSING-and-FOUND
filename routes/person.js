@@ -114,7 +114,7 @@ router.post(
       let query = { _id: req.params.id };
       let userUpdate = {};
       userUpdate.MissingPerson = req.user.MissingPerson + 1;
-      User.update(query, userUpdate, function (err) {
+      User.updateMany(query, userUpdate, function (err) {
         if (err) {
           console.log(err);
           return;
@@ -240,7 +240,7 @@ router.post(
       updatePerson.Description = description;
 
       let query = { _id: req.params.id };
-      Person.update(query, updatePerson, function (err) {
+      Person.updateMany(query, updatePerson, function (err) {
         if (err) {
           console.log(err);
           return;
