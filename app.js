@@ -172,13 +172,67 @@ let articles = require("./routes/articles");
 let person = require("./routes/person");
 let pet = require("./routes/pet");
 let users = require("./routes/users");
-const user = require("./models/user");
+const admin = require("./routes/admin");
 const { log } = require("console");
 app.use("/articles", articles);
 app.use("/person", person);
 app.use("/pet", pet);
 app.use("/users", users);
+app.use(admin);
 
+//--------------------ADMIN PART---------------------------------------------------------//
+
+// //--> ADMIN LOGIN
+// const adminModel = require("./models/admin"); // Import the Admin model
+
+// app.get("/admin/login", function (req, res) {
+//   res.render("adminlogin"); // Assuming "adminlogin.ejs" is the correct view file
+// });
+
+// // app.post("/admin/login", function (req, res) {
+// //   const { username, password } = req.body;
+// //   console.log(username);
+// //   console.log(password);
+
+// // Find the admin with the provided username and password
+// // const adminData = {
+// //   username: "admin007",
+// //   password: "hrishi123",
+// // };
+
+// // const admin = new adminModel(adminData);
+
+// // admin.save(function (err) {
+// //   if (err) {
+// //     console.error(err);
+// //     // Handle the error appropriately
+// //   } else {
+// //     console.log("Admin data inserted successfully");
+// //   }
+// // });
+// app.post("/admin/login", function (req, res) {
+//   const { username, password } = req.body;
+//   console.log(username);
+//   console.log(password);
+
+//   // Find the admin with the provided username and password
+//   adminModel.find((err, admin) => {
+//     // console.log(admin);
+//     if (err) {
+//       console.error(err);
+//       res.status(500).send("Internal Server Error");
+//       return;
+//     }
+
+//     if (username === admin[0].username && password === admin[0].password) {
+//       res.render("admin");
+//     } else {
+//       res.status(401).send("Invalid username or password");
+//     }
+//   });
+// });
+
+// ----------------- ADMIN PART---------------------------------------//
 // Access Control
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {

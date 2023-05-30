@@ -1,8 +1,10 @@
 extends unregistered_layout
 
 block content
-	h1 Login
-	.f-container.p-4
+	br
+	h1(style="max-width:720px;margin:0 auto;border-radius:12px") LOGIN USERS
+	br
+	.f-container.p-4(style="max-width:720px;margin:0 auto;border-radius:12px")
 		form(method='POST' action='/users/login')
 			#form-group
 				label Username:
@@ -16,3 +18,7 @@ block content
 		br
 		h6(style="background:#E7DFDD; color:black;display:inline" class="p-2") New to MISSING & FOUND? 
 			a(href="/users/register" style="color: blue;") Create an account. 
+
+			//- new part
+		h6(style="background:#E7DFDD; color:black;display:inline;float:right;border-radius:5px;" class="p-2") 
+			a(href="/admin/login" style="color: red;") ADMIN LOGIN 

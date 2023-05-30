@@ -1,0 +1,23 @@
+extends admin
+
+block header
+block content
+    head
+    body 
+        h1 User Management
+
+        table.table.table-bordered.bg-light
+            thead
+                tr
+                    th Username
+                    th Email
+                    th Contact
+                    th Action
+            tbody
+                each user in users
+                    tr
+                        td #{user.username}
+                        td #{user.email}
+                        td #{user.contact}
+                        td
+                            a.btn.btn-danger(style="color:white" href=`/delete/${user._id}`) Delete

@@ -22,6 +22,9 @@
     background-image: url('../mpf/container-background.png');
     border-radius: 12px;
 }
+.adminbg1{
+background-color: rgb(217, 70, 70);
+}
 
 footer {
   width: 100%;
