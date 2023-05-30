@@ -107,21 +107,51 @@ app.get("/missingPerson", ensureAuthenticated, async function (req, res) {
   }
 });
 
-// Pet.pug
-app.get("/missingPet", ensureAuthenticated, function (req, res) {
-  Pet.find({}, function (err, pet) {
-    if (err) {
-      console.log("Following Errors occurred in Person.find() function: ");
-      console.log(err);
-    } else {
-      Article.find({}, function (err, articles) {
-        res.render("Pet", {
-          pet: pet,
-        });
-      });
-    }
-  });
+// Person.pug
+// app.get("/missingPerson", ensureAuthenticated, function (req, res) {
+//   Person.find({}, function (err, person) {
+//     if (err) {
+//       console.log("Following Errors occurred in Person.find() function: ");
+//       console.log(err);
+//     } else {
+//       Article.find({}, function (err, articles) {
+//         res.render("Person", {
+//           person: person,
+//         });
+//       });
+//     }
+//   });
+// });
+
+// pet
+app.get("/missingPet", ensureAuthenticated, async function (req, res) {
+  try {
+    const pet = await Pet.find();
+    const users = await User.find();
+    const petAuthor = {};
+    users.forEach((user) => (petAuthor[user._id] = user.name));
+    console.log(petAuthor);
+    res.render("Pet", { pet, petAuthor });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
 });
+// Pet.pug
+// app.get("/missingPet", ensureAuthenticated, function (req, res) {
+//   Pet.find({}, function (err, pet) {
+//     if (err) {
+//       console.log("Following Errors occurred in Person.find() function: ");
+//       console.log(err);
+//     } else {
+//       Article.find({}, function (err, articles) {
+//         res.render("Pet", {
+//           pet: pet,
+//         });
+//       });
+//     }
+//   });
+// });
 
 app.get("/article/view", ensureAuthenticated, async function (req, res) {
   try {
@@ -158,11 +188,6 @@ function ensureAuthenticated(req, res, next) {
     res.redirect("/users/login");
   }
 }
-
-// Services Route
-app.get("/services", ensureAuthenticated, function (req, res) {
-  res.render("services", {});
-});
 
 // About Route
 app.get("/about", ensureAuthenticated, function (req, res) {

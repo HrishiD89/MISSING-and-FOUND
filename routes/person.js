@@ -80,7 +80,7 @@ router.post(
     const eyeColor = req.body.eyeColor;
     const hair = req.body.hair;
     const currentStatus = req.body.currentStatus;
-    const body = req.body.body;
+    // const body = req.body.body;
     const height = req.body.height;
     const description = req.body.description;
 
@@ -95,7 +95,7 @@ router.post(
       let newPerson = new Person({
         Name: name,
         Image: file,
-        Body: body,
+        // Body: body,
         Age: age,
         Height: height,
         Weight: weight,
@@ -210,7 +210,7 @@ router.post(
     const eyeColor = req.body.eyeColor;
     const hair = req.body.hair;
     const currentStatus = req.body.currentStatus;
-    const body = req.body.body;
+    // const body = req.body.body;
     const height = req.body.height;
     const description = req.body.description;
 
@@ -225,7 +225,7 @@ router.post(
       let updatePerson = {};
       updatePerson.Name = name;
       updatePerson.Image = file1;
-      updatePerson.Body = body;
+      // updatePerson.Body = body;
       updatePerson.Age = age;
       updatePerson.Height = height;
       updatePerson.Weight = weight;

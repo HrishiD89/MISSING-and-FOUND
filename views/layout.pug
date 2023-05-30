@@ -4,12 +4,12 @@ html
 		title MISSING & FOUND
 		meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
 		link(rel='icon' href='/images/logo.png' type='image/gif' style="border-radius:50%" sizes='20x20')
-		link(rel="stylesheet" href="/css/style.css")
 		link(rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css")
 		link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous')
+		link(rel="stylesheet" href="/css/style.css")
 
 	body.bg4
-		nav.navbarResponsive(style="background-color:black").navbar.navbar-expand-lg.navbar-dark
+		nav.navbarResponsive(style="background-color:black;").navbar.navbar-expand-lg.navbar-dark
 			a.navbar-brand(href='/' style="font-size:24px") MISSING & FOUND
 			button.nav-tbtn.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarsExample07XL' aria-controls='navbarsExample07XL' aria-expanded='false' aria-label='Toggle navigation')
 				span.navbar-toggler-icon
@@ -20,14 +20,16 @@ html
 							| HOME
 							span.sr-only (current)
 					if user
-						li.nav-item
-							a.py-3.nav-link(href='/articles/add') ADD ARTICLE
-						li.nav-item
-							a.py-3.nav-link(href='/article/view') VIEW ARTICLE
 						//- li.nav-item
-						//- 	a.py-3.nav-link(href='/person/add/missing') MISSING REPORT
+						//- 	a.py-3.nav-link(href='/articles/add') ADD ARTICLE
 						//- li.nav-item
-						//- 	a.py-3.nav-link(href='/pet/add/missingPet') MISSING REPORT PET
+						//- 	a.py-3.nav-link(href='/article/view') VIEW ARTICLE
+						li.nav-item.dropdown
+							a.py-3.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+								| ARTICLE
+							.dropdown-menu(aria-labelledby="navbarDropdown")
+								a.py-2.dropdown-item(href="/articles/add") ADD ARTICLE
+								a.py-2.dropdown-item(href="/article/view") VIEW ARTICLE
 						li.nav-item.dropdown
 							a.py-3.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
 								| MISSING REPORTS
@@ -37,9 +39,7 @@ html
 						li.nav-item
 							a.py-3.nav-link(href='/person/edit/missing/'+user._id ) EDIT REPORT
 						li.nav-item
-							a.py-3.nav-link(href="#") SERVICES
-						li.nav-item
-							a.py-3.nav-link(href="#") ABOUT
+							a.py-3.nav-link(href="/about") ABOUT
 					else
 						li.nav-item
 							a.py-3.nav-link(href='/users/register') REGISTER
