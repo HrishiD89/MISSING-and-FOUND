@@ -20,16 +20,14 @@ html
 							| HOME
 							span.sr-only (current)
 					if user
-						//- li.nav-item
-						//- 	a.py-3.nav-link(href='/articles/add') ADD ARTICLE
-						//- li.nav-item
-						//- 	a.py-3.nav-link(href='/article/view') VIEW ARTICLE
-						li.nav-item.dropdown
-							a.py-3.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-								| ARTICLE
-							.dropdown-menu(aria-labelledby="navbarDropdown")
-								a.py-2.dropdown-item(href="/articles/add") ADD ARTICLE
-								a.py-2.dropdown-item(href="/article/view") VIEW ARTICLE
+						//- li.nav-item.dropdown
+						//- 	a.py-3.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+						//- 		| ARTICLE
+						//- 	.dropdown-menu(aria-labelledby="navbarDropdown")
+						//- 		//- a.py-2.dropdown-item(href="/articles/add") ADD ARTICLE
+						//- 		a.py-2.dropdown-item(href="/article/view") VIEW ARTICLE
+						li.nav-item
+							a.py-3.nav-link(href='/article/view')  ARTICLE
 						li.nav-item.dropdown
 							a.py-3.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
 								| MISSING REPORTS
@@ -47,7 +45,7 @@ html
 							a.py-3.nav-link(href='/users/login') LOGIN
 				ul.navbar-nav.ml-auto
 					li.nav-item.dropdown(style="background-color:#028aa8").mr-5.rounded-pill
-						a#dropdown07XL.nav-link.dropdown-toggle.px-4(href='#' data-toggle='dropdown' aria-expanded='false') Account
+						a#dropdown07XL.nav-link.dropdown-toggle.px-4(href='#' data-toggle='dropdown' aria-expanded='false' style="color:white") Account
 						.dropdown-menu(aria-labelledby='dropdown07XL')
 							a.dropdown-item(href='/users/profile') Profile
 							a.dropdown-item(href='/users/logout') Logout

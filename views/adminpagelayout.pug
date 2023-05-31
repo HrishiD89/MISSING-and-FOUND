@@ -12,10 +12,11 @@ html
             if errors
                 each error, i in errors
                     div(class="alert alert-danger") #{error.msg}
+
             block content
             br
-        footer 
+        footer.p-4(style="background-color:#05647ebd") 
             p(style="margin:0") Copyright &copy; 2023 MISSING & FOUND
-script(src="/bower_components/jquery/dist/jquery.js")
-script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
-script(src="/js/main.js")
+        script(src="/bower_components/jquery/dist/jquery.js")
+        script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
+        script(src="/js/main.js") 

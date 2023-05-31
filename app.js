@@ -159,7 +159,6 @@ app.get("/article/view", ensureAuthenticated, async function (req, res) {
     const users = await User.find();
     const articleAuthors = {};
     users.forEach((user) => (articleAuthors[user._id] = user.name));
-    console.log(articleAuthors);
     res.render("view_article", { articles, articleAuthors });
   } catch (err) {
     console.error(err);
@@ -233,6 +232,34 @@ app.use(admin);
 // });
 
 // ----------------- ADMIN PART---------------------------------------//
+// delete person report
+app.get("/person/delete/:id", async (req, res) => {
+  const personID = req.params.id;
+  try {
+    await Person.findByIdAndDelete(personID);
+    res.send(
+      '<script>alert("Missing Person Report deleted successfully");window.location.href=`/missingPerson`;</script>'
+    );
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// delete pet report
+app.get("/pet/deletePet/:id", async (req, res) => {
+  const petID = req.params.id;
+  try {
+    await Pet.findByIdAndDelete(petID);
+    res.send(
+      '<script>alert("Missing Pet Report deleted successfully");window.location.href=`/missingPet`;</script>'
+    );
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 // Access Control
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {

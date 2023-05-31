@@ -5,7 +5,8 @@ block header
 	//- 	h1(style="display:table-cell;text-align: center").align-middle Hi #{user.name}.
 
 block content
-	h3.bg-info(style="color:white;padding-left:20px;border-radius:5px").mt-5 You have Added #{user.MissingPerson} Missing Person Records. Click to Edit!
+	//- h3.bg-info(style="color:white;padding-left:20px;border-radius:5px").mt-5 You have Added #{user.MissingPerson} Missing Person Records. Click to Edit!⭐have to update missingPerson value
+	h3.bg-info(style="color:white;padding-left:20px;border-radius:5px").mt-5 Your Missing Person Records. Click to Edit!
 	- var n = person.length -1;
 	.f-container.p-4(style="border-radius:14px")
 		ul.list-group
@@ -21,7 +22,9 @@ block content
 				-var n = n-1;
 
 	//- for pet 
-	h3(style="color:white;padding-left:20px;border-radius:5px;background-color:#1824CB").mt-2 You have Added #{user.MissingPet} Missing Pet Records. Click to Edit!
+	//- h3(style="color:white;padding-left:20px;border-radius:5px;background-color:#1824CB").mt-2 You have Added #{user.MissingPet} Missing Pet Records. Click to Edit!⭐have to update missingPet value
+	h3(style="color:white;padding-left:20px;border-radius:5px;background-color:#1824CB").mt-2 Your Missing Pet Records. Click to Edit!
+
 	- var n = pet.length -1;
 	.f-container.p-4(style="border-radius:14px")
 		ul.list-group

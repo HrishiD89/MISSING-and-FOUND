@@ -18,37 +18,12 @@ html
                 ul.navbar-nav.mr-auto
                     li.nav-item.active
                         a.py-3.nav-link(href='/admin/home')
-                            | HOME
+                            | USER
                             span.sr-only (current)
-                    //- if user
-                    //-     li.nav-item.dropdown
-                    //-         a.py-3.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-                    //-             | ARTICLE
-                    //-         .dropdown-menu(aria-labelledby="navbarDropdown")
-                    //-             a.py-2.dropdown-item(href="/articles/add") ADD ARTICLE
-                    //-             a.py-2.dropdown-item(href="/article/view") VIEW ARTICLE
-                    //-     li.nav-item.dropdown
-                    //-         a.py-3.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-                    //-             | MISSING REPORTS
-                    //-         .dropdown-menu(aria-labelledby="navbarDropdown")
-                    //-             a.py-2.dropdown-item(href="/person/add/missing") MISSING PERSON REPORT
-                    //-             a.py-2.dropdown-item(href="/pet/add/missingPet") MISSING PET REPORT
-                    //-     li.nav-item
-                    //-         a.py-3.nav-link(href='/person/edit/missing/'+user._id ) EDIT REPORT
-                    //-     li.nav-item
-                    //-         a.py-3.nav-link(href="/about") ABOUT
-                    //- else
+                    //- li.nav-item
+                    //-     a.py-3.nav-link(href='/admin/home') USER
                     li.nav-item
-                        a.py-3.nav-link(href='#') USER
-                    li.nav-item
-                        a.py-3.nav-link(href='#') ADD ARTICLE
-                    li.nav-item
-                        a.py-3.nav-link(href='/users/login') LOGIN
-                //- ul.navbar-nav.ml-auto
-                //-     li.nav-item(style="background-color:#028aa8;").mr-5.rounded-pill
-                //-         a#dropdown07XL.nav-link.dropdown-toggle.px-4(href='#' data-toggle='dropdown' aria-expanded='false' style="color:white") ADMIN
-                //-         .dropdown-menu(aria-labelledby='dropdown07XL')
-                //-             a.dropdown-item(href='/users/login') Logout
+                        a.py-3.nav-link(href='/admin/addarticle') ADD ARTICLE
                 ul.navbar-nav.ml-auto
                     li.nav-item.dropdown(style="background-color:#028aa8").mr-5.rounded-pill
                         a#dropdown07XL.nav-link.dropdown-toggle.px-4(href='#' data-toggle='dropdown' aria-expanded='false' style="color:white") ADMIN

@@ -33,7 +33,7 @@ block content
 		br
 		.card-deck
 			.row(style="margin-left:0px")
-				if n < 4
+				if n < 3
 					while n >= 0
 						.card(style="min-width:250px").bg-dark
 							span.badge.badge-pill.badge-danger#lastest_item Recent
@@ -49,7 +49,13 @@ block content
 								h5.card-title=person[n].Name
 								ul.list-group.list-group-flush.myList
 									//- li.list-group-item.bg-dark.text-light Gender: #{person[n].Gender}
-									li.list-group-item.bg-dark.text-light Age: #{person[n].Age}
+									- const dateStr = person[n].DateOfMissing
+									- const date = new Date(dateStr)
+									- const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+
+										li.list-group-item.bg-dark.text-light Age: #{person[n].Age}
+
+										li.list-group-item.bg-dark.text-light Missing Date : #{formattedDate}
 									//- li.list-group-item.bg-dark.text-light Skin: #{person[n].SkinColor}
 									li.list-group-item.bg-dark.text-light Status: 
 										if person[n].CurrentStatus == "missing"
@@ -90,7 +96,13 @@ block content
 									h5.card-title=person[n].Name
 									ul.list-group.list-group-flush.myList
 										//- li.list-group-item.bg-dark.text-light Gender: #{person[n].Gender}
-										li.list-group-item.bg-dark.text-light Age: #{person[n].Age}
+										- const dateStr = person[n].DateOfMissing
+										- const date = new Date(dateStr)
+										- const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+
+											li.list-group-item.bg-dark.text-light Age: #{person[n].Age}
+
+											li.list-group-item.bg-dark.text-light Missing Date : #{formattedDate}
 										//- li.list-group-item.bg-dark.text-light Skin: #{person[n].SkinColor}
 										li.list-group-item.bg-dark.text-light Status: 
 											if person[n].CurrentStatus == "missing"
@@ -129,7 +141,13 @@ block content
 									h5.card-title=person[n].Name
 									ul.list-group.list-group-flush.myList
 										//- li.list-group-item.bg-dark.text-light Gender: #{person[n].Gender}
+									- const dateStr = person[n].DateOfMissing
+									- const date = new Date(dateStr)
+									- const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+
 										li.list-group-item.bg-dark.text-light Age: #{person[n].Age}
+
+										li.list-group-item.bg-dark.text-light Missing Date : #{formattedDate}
 										//- li.list-group-item.bg-dark.text-light Skin: #{person[n].SkinColor}
 										li.list-group-item.bg-dark.text-light Status: 
 											if person[n].CurrentStatus == "missing"

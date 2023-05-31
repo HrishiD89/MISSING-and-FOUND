@@ -64,8 +64,9 @@ block content
                             img(src="/uploads/missing/"+pet.Image)#Profile_Image
             br
             input(type="text" value=pet.Image name="fileCheck" style="display:none")
-
             input.btn.btn-primary(type='submit' value='Submit')
+            a(href=`/missingPet` type="button" role="button" aria-pressed="true" style="color:white;margin: 0 62px").btn.btn-warning Discard
+            a(href=`/pet/deletePet/${pet._id}` type="button" role="button" aria-pressed="true" style="color:white;float:right").btn.btn-danger Delete
     script
         document.getElementById("gender").value ='#{pet.Gender}';
         document.getElementById("size").value ='#{pet.Size}';

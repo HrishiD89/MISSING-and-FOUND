@@ -1,8 +1,10 @@
 extends adminpagelayout
 
 block content
-    h1(style="max-width:720px;margin:0 auto;border-radius:12px") ADMIN LOGIN
     br
+    br
+    br
+    h1(style="max-width:720px;margin:0 auto;border-radius:12px ;color:red") ADMIN LOGIN
     .bg-light.p-4(style="max-width:720px;margin:0 auto;border-radius:12px")
         form(method='POST' action='/admin/home')
             #form-group
@@ -15,5 +17,5 @@ block content
             input.btn.btn-primary(type='submit' value='Login')
         br
         br
-        h6(style="background:#E7DFDD; color:black;display:inline" class="p-2") Back to user login 
-            a(href="/users/login" style="color: blue;") LOGIN PAGE 
+        h6(style="background:#E7DFDD; color:black;display:inline" class="p-2") Back to 
+            a(href="/users/login" style="color: blue;") USER LOGIN PAGE 

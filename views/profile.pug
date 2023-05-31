@@ -7,20 +7,20 @@ block content
 	.f-container.p-4
 		if Photoerror
 			div(class="alert alert-danger") #{Photoerror}
-		table.table.table-hover.table-light(style="border: 5px solid #d7dce1")
-			tbody
-				tr
-					td Articles Posted
-					td
-						span.badge.badge-pill.badge-info #{user.Articles}
-				tr
-					td Missing Person Added
-					td
-						span.badge.badge-pill.badge-info #{user.MissingPerson}
-				tr
-					td Missing Pet Added
-					td
-						span.badge.badge-pill.badge-info #{user.MissingPet}
+		//- table.table.table-hover.table-light(style="border: 5px solid #d7dce1")
+		//- 	tbody
+		//- 		tr
+		//- 			td Total Articles
+		//- 			td
+		//- 				span.badge.badge-pill.badge-info #{user.Articles}
+		//- 		tr
+		//- 			td Missing Person Added
+		//- 			td
+		//- 				span.badge.badge-pill.badge-info #{user.MissingPerson}
+		//- 		tr
+		//- 			td Missing Pet Added
+		//- 			td
+		//- 				span.badge.badge-pill.badge-info #{user.MissingPet} ⭐here have to update the value of missing report,missing pet and article
 		form(method='POST' action='/users/profile/'+user._id enctype="multipart/form-data")
 			#form-group
 				label Name*:
