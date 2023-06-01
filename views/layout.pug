@@ -7,13 +7,39 @@ html
 		link(rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css")
 		link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous')
 		link(rel="stylesheet" href="/css/style.css")
+		style
+			| @media (max-width: 1028px) {
+			|   nav ul {
+			|	font-size:15px;
+			|	margin:0 10px;
+			|}
+			|
+			| }
+			|@media(max-width:570px){
+			|	.navbar-brand{
+			|		margin-left:20px;
+			|		font-size:16px;
+			|}
+			|	#page_container h2{
+			|		font-size:28px;
+			| }
+			|   .view_article-img{
+			|		object-fit:contain;
+			|    }
+			|	li.nav-item.dropdown{ margin-right:20px; }
+			|}
+			| @media (min-width: 1388px){
+			|   .navbar-brand{
+			|		margin-left:200px;
+			|}
+			|	}
 
 	body.bg4
-		nav.navbarResponsive(style="background-color:black;").navbar.navbar-expand-lg.navbar-dark
-			a.navbar-brand(href='/' style="font-size:24px") MISSING & FOUND
-			button.nav-tbtn.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarsExample07XL' aria-controls='navbarsExample07XL' aria-expanded='false' aria-label='Toggle navigation')
+		nav.navbarResponsive(style="background-color:rgb(32,30,30);").navbar.navbar-expand-lg.navbar-dark
+			a.navbar-brand(href='/' style=";color:#028aa8;font-weight:bold;").py-3 MISSING & FOUND
+			button.nav-tbtn.navbar-toggler.mx-lg-5.mx-sm-2(type='button' data-toggle='collapse' data-target='#navbarsExample07XL' aria-controls='navbarsExample07XL' aria-expanded='false' aria-label='Toggle navigation')
 				span.navbar-toggler-icon
-			#navbarsExample07XL.collapse.navbar-collapse
+			#navbarsExample07XL.collapse.navbar-collapse(style="font-size:17px")
 				ul.navbar-nav.mr-auto
 					li.nav-item.active
 						a.py-3.nav-link(href='/')
@@ -31,9 +57,9 @@ html
 						li.nav-item.dropdown
 							a.py-3.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
 								| MISSING REPORTS
-							.dropdown-menu(aria-labelledby="navbarDropdown")
-								a.py-2.dropdown-item(href="/person/add/missing") MISSING PERSON REPORT
-								a.py-2.dropdown-item(href="/pet/add/missingPet") MISSING PET REPORT
+							.dropdown-menu(aria-labelledby="navbarDropdown" style="background:grey;")
+								a.py-2.dropdown-item(href="/person/add/missing" style="color:white;border-bottom:1px solid black" ) MISSING PERSON REPORT
+								a.py-2.dropdown-item(href="/pet/add/missingPet" style="color:white;" ) MISSING PET REPORT
 						li.nav-item
 							a.py-3.nav-link(href='/person/edit/missing/'+user._id ) EDIT REPORT
 						li.nav-item
@@ -44,10 +70,10 @@ html
 						li.nav-item
 							a.py-3.nav-link(href='/users/login') LOGIN
 				ul.navbar-nav.ml-auto
-					li.nav-item.dropdown(style="background-color:#028aa8").mr-5.rounded-pill
+					li.nav-item.dropdown(style="background-color:#028aa8;margin-right:200px; border-radius:8px;")
 						a#dropdown07XL.nav-link.dropdown-toggle.px-4(href='#' data-toggle='dropdown' aria-expanded='false' style="color:white") Account
 						.dropdown-menu(aria-labelledby='dropdown07XL')
-							a.dropdown-item(href='/users/profile') Profile
+							a.dropdown-item(href='/users/profile' style="border-bottom:1px solid black") Profile
 							a.dropdown-item(href='/users/logout') Logout
 
 

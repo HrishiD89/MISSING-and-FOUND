@@ -174,7 +174,7 @@ router.post(
     ),
   ],
   function (req, res) {
-    console.log("req.params.id:", req.params.id);
+    // console.log("req.params.id:", req.params.id);
     if (req.file == undefined) {
       res.render("profile", {
         Photoerror: "Please Re-upload Profile Image or Change the image",

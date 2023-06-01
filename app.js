@@ -7,9 +7,11 @@ const flash = require("connect-flash");
 const config = require("./config/database");
 const passport = require("passport");
 
-// Bring in Person Model
+// Bring in Model
 let Person = require("./models/person");
 let Pet = require("./models/pet");
+let Article = require("./models/article");
+let User = require("./models/user");
 
 mongoose.connect(config.database, {
   useNewUrlParser: true,
@@ -46,10 +48,6 @@ app.use(function (req, res, next) {
   res.locals.messages = require("express-messages")(req, res);
   next();
 });
-
-// Bring in Models
-let Article = require("./models/article");
-let User = require("./models/user");
 
 // Load View Engine
 app.set("views", path.join(__dirname, "views"));
@@ -179,59 +177,6 @@ app.use("/pet", pet);
 app.use("/users", users);
 app.use(admin);
 
-//--------------------ADMIN PART---------------------------------------------------------//
-
-// //--> ADMIN LOGIN
-// const adminModel = require("./models/admin"); // Import the Admin model
-
-// app.get("/admin/login", function (req, res) {
-//   res.render("adminlogin"); // Assuming "adminlogin.ejs" is the correct view file
-// });
-
-// // app.post("/admin/login", function (req, res) {
-// //   const { username, password } = req.body;
-// //   console.log(username);
-// //   console.log(password);
-
-// // Find the admin with the provided username and password
-// // const adminData = {
-// //   username: "admin007",
-// //   password: "hrishi123",
-// // };
-
-// // const admin = new adminModel(adminData);
-
-// // admin.save(function (err) {
-// //   if (err) {
-// //     console.error(err);
-// //     // Handle the error appropriately
-// //   } else {
-// //     console.log("Admin data inserted successfully");
-// //   }
-// // });
-// app.post("/admin/login", function (req, res) {
-//   const { username, password } = req.body;
-//   console.log(username);
-//   console.log(password);
-
-//   // Find the admin with the provided username and password
-//   adminModel.find((err, admin) => {
-//     // console.log(admin);
-//     if (err) {
-//       console.error(err);
-//       res.status(500).send("Internal Server Error");
-//       return;
-//     }
-
-//     if (username === admin[0].username && password === admin[0].password) {
-//       res.render("admin");
-//     } else {
-//       res.status(401).send("Invalid username or password");
-//     }
-//   });
-// });
-
-// ----------------- ADMIN PART---------------------------------------//
 // delete person report
 app.get("/person/delete/:id", async (req, res) => {
   const personID = req.params.id;

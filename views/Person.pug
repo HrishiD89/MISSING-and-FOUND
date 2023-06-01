@@ -1,30 +1,6 @@
 extends layout
 block header
 	br
-	//- .carousel.slide(data-ride='carousel').mt-5
-	//- 	.carousel-inner
-	//- 		.carousel-item.active(style="height: 100px; margin-top:80px")
-
-	//- 		section.align-middle.search-sec
-	//- 			.container
-	//- 				h2(style="color:white").mb-5 SEARCH FOR MISSING PERSON
-
-	//- 				form(action='/person/person_search/' method='post' novalidate='novalidate')
-	//- 					.row
-	//- 						.col-lg-12
-	//- 							.row
-	//- 								.col-lg-3.col-md-3.col-sm-12
-	//- 									input.form-control.search-slt(type='text' placeholder='Name' name="name")
-	//- 								.col-lg-3.col-md-3.col-sm-12
-	//- 									input.form-control.search-slt(type='text' placeholder='Country' name="country")
-	//- 								.col-lg-3.col-md-3.col-sm-12
-	//- 									select.form-control.search-slt(name="gender")
-	//- 										option(value="gender" selected) Gender
-	//- 										option(value="male") Male
-	//- 										option(value="female") Female
-	//- 								.col-lg-3.col-md-3.col-sm-12.p-0
-		button.btn.wrn-btn.rounded-pill(type='submit' style="background-color:#41250a;color:white;font-size:18px" ) SEARCH
-
 block content
 	- var n = person.length -1;
 
@@ -40,11 +16,11 @@ block content
 							//- img(src="../images/recent.gif" alt="Recent" style="position:absolute;height:40px;width:40px;border-radius:50%;")
 							if person[n].Image==undefined
 								if person[n].Gender=="male"
-									img.card-img-top(src='/mpf/missing_male.jpg' ,style="object-fit:cover;", alt=person[n].Name)
+									img.reportviewimg.card-img-top(src='/mpf/missing_male.jpg' ,alt=person[n].Name)
 								else
-									img.card-img-top(src='/mpf/missing_female.png' style="object-fit:cover;", alt=person[n].Name)
+									img.reportviewimg.card-img-top(src='/mpf/missing_female.png' , alt=person[n].Name)
 							else
-								img.card-img-top(src='/uploads/missing/'+person[n].Image,style="object-fit:cover;", alt=person[n].Name)
+								img.card-img-top.reportviewimg(src='/uploads/missing/'+person[n].Image, alt=person[n].Name)
 							.card-body
 								h5.card-title=person[n].Name
 								ul.list-group.list-group-flush.myList
@@ -87,11 +63,11 @@ block content
 									span.badge.badge-pill.badge-danger#lastest_item Recent
 								if person[n].Image==undefined
 									if person[n].Gender=="male"
-										img.card-img-top(src='/mpf/missing_male.jpg', alt=person[n].Name)
+										img.reportviewimgcard-img-top(src='/mpf/missing_male.jpg', alt=person[n].Name)
 									else
-										img.card-img-top(src='/mpf/missing_female.png', alt=person[n].Name)
+										img.card-img-top.reportviewimg(src='/mpf/missing_female.png', alt=person[n].Name)
 								else
-									img.card-img-top(src='/uploads/missing/'+person[n].Image, alt=person[n].Name)
+									img.card-img-top.reportviewimg(src='/uploads/missing/'+person[n].Image, alt=person[n].Name)
 								.card-body
 									h5.card-title=person[n].Name
 									ul.list-group.list-group-flush.myList
@@ -132,11 +108,11 @@ block content
 									span.badge.badge-pill.badge-danger#lastest_item Recent
 								if person[n].Image==undefined
 									if person[n].Gender=="male"
-										img.card-img-top(src='/mpf/missing_male.jpg', alt=person[n].Name)
+										img.reportviewimg.card-img-top(src='/mpf/missing_male.jpg', alt=person[n].Name)
 									else
-										img.card-img-top(src='/mpf/missing_female.png', alt=person[n].Name)
+										img.reportviewimg.card-img-top(src='/mpf/missing_female.png', alt=person[n].Name)
 								else
-									img.card-img-top(src='/uploads/missing/'+person[n].Image, alt=person[n].Name)
+									img.reportviewimg.card-img-top(src='/uploads/missing/'+person[n].Image, alt=person[n].Name )
 								.card-body
 									h5.card-title=person[n].Name
 									ul.list-group.list-group-flush.myList

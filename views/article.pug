@@ -9,7 +9,8 @@ block content
 		if article.file != null
 			img(src="/uploads/article/"+article.file style="width:100%;height:500px;display:block;margin-left:auto;margin-right:auto;object-fit:cover")
 		br
-		p= article.body
+		p
+			!= article.body.replace(/\n/g, "<br>")
 		hr
 		h6.text-info Posted by #{author}
 		hr
