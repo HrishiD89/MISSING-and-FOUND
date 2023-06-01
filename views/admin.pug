@@ -7,14 +7,41 @@ html
         link(rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css")
         link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous')
         link(rel="stylesheet" href="/css/style.css")
+        style
+            | @media (max-width: 1028px) {
+            |   nav ul {
+            |	font-size:15px;
+            |	margin:0 10px;
+            |}
+            |
+            | }
+            |@media(max-width:570px){
+            |	.navbar-brand{
+            |		margin-left:20px;
+            |		font-size:16px;
+            |}
+            |	#page_container h2{
+            |		font-size:28px;
+            | }
+            |   .view_article-img{
+            |		object-fit:contain;
+            |    }
+            |	li.nav-item.dropdown{ margin-right:20px; }
+            |}
+            | @media (min-width: 1388px){
+            |   .navbar-brand{
+            |		margin-left:200px;
+            |}
+            |	}
 
 
     body.adminbg1
         nav.navbarResponsive(style="background-color:black;").navbar.navbar-expand-lg.navbar-light.bg-light
-            a.navbar-brand(href='/admin/home' style="font-size:24px") MISSING & FOUND
-            button.nav-tbtn.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarsExample07XL' aria-controls='navbarsExample07XL' aria-expanded='false' aria-label='Toggle navigation')
+
+            a.navbar-brand(href='/admin/home' ) MISSING & FOUND
+            button.nav-tbtn.navbar-toggler.mx-lg-5.mx-sm-2(type='button' data-toggle='collapse' data-target='#navbarsExample07XL' aria-controls='navbarsExample07XL' aria-expanded='false' aria-label='Toggle navigation')
                 span.navbar-toggler-icon
-            #navbarsExample07XL.collapse.navbar-collapse
+            #navbarsExample07XL.collapse.navbar-collapse(style="font-size:17px")
                 ul.navbar-nav.mr-auto
                     li.nav-item.active
                         a.py-3.nav-link(href='/admin/home')
@@ -25,7 +52,7 @@ html
                     li.nav-item
                         a.py-3.nav-link(href='/admin/addarticle') ADD ARTICLE
                 ul.navbar-nav.ml-auto
-                    li.nav-item.dropdown(style="background-color:#028aa8").mr-5.rounded-pill
+                    li.nav-item.dropdown(style="background-color:#028aa8;margin-right:200px; border-radius:8px;")
                         a#dropdown07XL.nav-link.dropdown-toggle.px-4(href='#' data-toggle='dropdown' aria-expanded='false' style="color:white") ADMIN
                         .dropdown-menu(aria-labelledby='dropdown07XL')
                             a.dropdown-item(href='/users/login') Logout
@@ -47,5 +74,25 @@ html
         script(src="/bower_components/jquery/dist/jquery.js")
         script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
         script(src="/js/main.js")
+        script.
+            const searchInput = document.getElementById('searchInput');
+            const rows = document.querySelectorAll('tbody tr');
+
+            searchInput.addEventListener('input', () => {
+                const searchValue = searchInput.value.toLowerCase().trim();
+
+                rows.forEach(row => {
+                const username = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                const email = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+                const contact = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
+
+                if (username.includes(searchValue) || email.includes(searchValue) || contact.includes(searchValue)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+                });
+            });
+
 
 

@@ -163,6 +163,18 @@ app.get("/article/view", ensureAuthenticated, async function (req, res) {
     res.status(500).send("Internal Server Error");
   }
 });
+// /admin/view/article/${article._id}
+// admin article view
+app.get("/admin/view/article/:id", function (req, res) {
+  Article.findById(req.params.id, function (err, article) {
+    User.findById(article.author, function (err, user) {
+      res.render("admin_article", {
+        article: article,
+        author: "admin007", //here for author i have hardcoded so that i can view easily
+      });
+    });
+  });
+});
 
 // Route Files
 let articles = require("./routes/articles");
@@ -198,6 +210,20 @@ app.get("/pet/deletePet/:id", async (req, res) => {
     await Pet.findByIdAndDelete(petID);
     res.send(
       '<script>alert("Missing Pet Report deleted successfully");window.location.href=`/missingPet`;</script>'
+    );
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// delete article /admin/delete/article/${article._id}
+app.get("/admin/delete/article/:id", async (req, res) => {
+  const articleID = req.params.id;
+  try {
+    await Article.findByIdAndDelete(articleID);
+    res.send(
+      '<script>alert("Article is succesfully Deleted!");window.location.href=`/admin/manage-article`;</script>'
     );
   } catch (error) {
     console.error(error);

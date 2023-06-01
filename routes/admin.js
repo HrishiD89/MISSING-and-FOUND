@@ -42,6 +42,11 @@ router.get("/admin/home", async (req, res) => {
   res.render("adminhome", { users: user, admin: admin });
 });
 
+router.get("/admin/manage-article", async (req, res) => {
+  const article = await Article.find();
+  res.render("admin_manage_article", { articles: article });
+});
+
 router.get("/delete/:id", async (req, res) => {
   const userID = req.params.id;
   try {

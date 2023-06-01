@@ -3,7 +3,11 @@ extends admin
 block header
 
 block content
-    h1(style="color:red;font-weight:bold") #{title}
+    .flex-container
+        h1(style="color:red;font-weight:bold") #{title}
+        h1
+            a(href="/admin/manage-article" class="manage-article-link") Manage Article
+
     .bg-light.p-4
         form(method='POST' action='/admin/addarticle' enctype="multipart/form-data")
             #form-group

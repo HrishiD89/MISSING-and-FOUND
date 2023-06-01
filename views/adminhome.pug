@@ -6,28 +6,29 @@ block content
     body 
         br
         h1 Welcome
-            span(style="color:red;font-weight:bold")  #{admin[0].username}
+            span(style="color:red;font-weight:bold")  #{admin[0].username }
             |!
 
-        table.table.table-bordered.bg-light
-            thead
-                tr
-                    th Profile
-                    th Username
-                    th Email
-                    th Contact
-                    th Action
-            tbody
-                each user in users
-                    tr
-                        td
-                            //- div(style=" display: inline-block; border-radius: 50%; width: 56px; height: 56px; background: linear-gradient(to right, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);")
+            .form-group.mt-3 
+                input.form-control(type="text" id="searchInput" placeholder="Search")
+            table.table.table-bordered.bg-light 
+                thead
+                    tr(style="font-size:20px")
+                        th Profile
+                        th Username
+                        th Email
+                        th Contact
+                        th Action
 
-                            img(src="/uploads/" + user.file, id="Profile_Image" style="align-items:center;width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid white")
+                tbody
+                    each user in users
+                        tr(style="font-size:20px")
+                            td
+                                img(src="/uploads/" + user.file, id="Profile_Image" style="align-items:center;width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid white")
+                            td #{user.username}
+                            td #{user.email}
+                            td #{user.contact}
+                            td
+                                a.btn.btn-danger(style="color:white", href=`/delete/${user._id}`) Delete
+                                    // Add a button for the Undo action
 
-                        td #{user.username}
-                        td #{user.email}
-                        td #{user.contact}
-                        td
-                            a.btn.btn-danger(style="color:white" href=`/delete/${user._id}`) Delete
-                                // Add a button for the Undo action
