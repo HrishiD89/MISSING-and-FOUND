@@ -69,10 +69,10 @@ block content
         table.table.table-hover.table-primary
             tbody
                 tr
-                    td Phone
+                    td Phone : #{user1.contact}
                     td(colspan="2")
                         a(href="tel:"+user1.contact) Click to Call Now
                 tr
-                    td Email
+                    td Email : #{user1.email}
                     td(colspan="2")
                         a(href="mailto: "+user1.email  target="_blank") Click to Send Mail Now

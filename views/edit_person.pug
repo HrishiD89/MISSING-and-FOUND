@@ -98,8 +98,8 @@ block content
 			input(type="text" value=person.Image name="fileCheck" style="display:none")
 
 			input.btn.btn-primary(type='submit' value='Submit')
-			a(href=`/missingPerson` type="button" role="button" aria-pressed="true" style="color:white;margin: 0 62px").btn.btn-warning Discard
-			a(href=`/person/delete/${person._id}` type="button" role="button" aria-pressed="true" style="color:white;float:right").btn.btn-danger Delete
+			a(href=`/person/edit/missing/${user._id}` type="button" role="button" aria-pressed="true" style="color:white;margin: 0 10px").btn.btn-warning Discard
+			a(href=`/person/delete/${person._id}` type="button" role="button" aria-pressed="true" style="color:white;").btn.btn-danger Delete
 	script
 		document.getElementById("gender").value ='#{person.Gender}';
 		document.getElementById("mentalStatus").value ='#{person.MentalStatus}';

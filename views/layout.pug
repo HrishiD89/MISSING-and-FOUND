@@ -20,7 +20,8 @@ html
 			|		margin-left:20px;
 			|		font-size:16px;
 			|}
-			|	#page_container h2{
+			|	#page_container h2 ,#page_container h3 {
+			|		margin: 20px 0;
 			|		font-size:28px;
 			| }
 			|   .view_article-img{
@@ -87,8 +88,19 @@ html
 			block content
 			br
 		footer.p-4(style="background-color:#05647ebd") 
+		script.
+			function validatePassword() {
+				var password1 = document.querySelector('input[name="password"]');
+				var password2 = document.querySelector('input[name="password2"]');
+				if (password1.value !== password2.value) {
+				password2.setCustomValidity("Passwords do not match.");
+				} else {
+				password2.setCustomValidity("");
+				}
+			}
 			p(style="margin:0") Copyright &copy; 2023 MISSING & FOUND
 		script(src="/bower_components/jquery/dist/jquery.js")
 		script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
 		script(src="/js/main.js")
+
 

@@ -11,23 +11,26 @@ block content
                 a(href="/admin/addarticle" style="color:blue;font-weight:bold" class="back") BACK
         .form-group.mt-2 
             input.form-control(type="text" id="searchInput" placeholder="Search")
-        table.table.table-bordered.bg-light 
-            thead
-                tr
-                    th(style="font-size:20px") Article
-                    th(style="font-size:20px") Title
-                    th(style="font-size:20px") View
-                    th(style="font-size:20px") Action
-
-            tbody
-                each article in articles
+        div(style="overflow-x:auto;border:1px solid grey") 
+            table.table.table-bordered.bg-light(style="margin-bottom:0px;") 
+                thead
                     tr
+                        th(style="font-size:20px") Article
+                        th(style="font-size:20px;") Title
+                        th(style="font-size:20px;") Edit
+                        th(style="font-size:20px") View
+                        th(style="font-size:20px") Action
 
-                        td
-                            img(src=`/uploads/article/${article.file}`, id="Article_Image" style="align-items:center;width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid white")
-                        td #{article.title}
-                        td
-                            a.btn.btn-primary(style="color:white", href=`/admin/view/article/${article._id}`) View
-                        td
-                            a.btn.btn-danger(style="color:white", href=`/admin/delete/article/${article._id}`) Delete
-                                // Add a button for the Undo action
+                tbody
+                    each article in articles
+                        tr
+
+                            td
+                                img(src=`/uploads/article/${article.file}`, id="Article_Image" style="align-items:center;width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid white")
+                            td #{article.title}
+                            td
+                                a.btn.btn-success(style="color:white", href=`/admin/view/article/${article._id}`) Edit
+                            td
+                                a.btn.btn-primary(style="color:white", href=`/admin/view/article/${article._id}`) View
+                            td
+                                a.btn.btn-danger(style="color:white", href=`/admin/delete/article/${article._id}`) Delete

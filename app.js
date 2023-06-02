@@ -97,7 +97,7 @@ app.get("/missingPerson", ensureAuthenticated, async function (req, res) {
     const users = await User.find();
     const personAuthor = {};
     users.forEach((user) => (personAuthor[user._id] = user.name));
-    console.log(personAuthor);
+    // console.log(personAuthor);
     res.render("Person", { person, personAuthor });
   } catch (err) {
     console.error(err);
