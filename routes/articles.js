@@ -50,12 +50,24 @@ router.get("/add", ensureAuthenticated, function (req, res) {
 });
 
 // Get Single Article
+// router.get("/:id", ensureAuthenticated, function (req, res) {
+//   Article.findById(req.params.id, function (err, article) {
+//     User.findById(article.author, function (err, user) {
+//       res.render("article", {
+//         article: article,
+//         author: user.name,
+//       });
+//     });
+//   });
+// });
+//- 👋above code is for getting the view article for user side
+
 router.get("/:id", ensureAuthenticated, function (req, res) {
   Article.findById(req.params.id, function (err, article) {
     User.findById(article.author, function (err, user) {
       res.render("article", {
         article: article,
-        author: user.name,
+        author: "admin007", //here for author i have hardcoded so that i can view easily
       });
     });
   });
@@ -159,7 +171,7 @@ router.post(
       let userUpdate = {};
       userUpdate.Articles = req.user.Articles + 1;
       let query = { _id: req.user._id };
-      User.update(query, userUpdate, function (err) {
+      User.updateMany(query, userUpdate, function (err) {
         if (err) {
           console.log(err);
           return;

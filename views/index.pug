@@ -2,19 +2,18 @@ extends layout
 block header
 block content
 	- var n = person.length -1;
+		br
 		h2 Missing Person & Pets Reports
-		.showcase_container.d-flex.justify-content-center.flex-wrap(style="padding: 50px 100px")
-			.card(style='width: 18rem;').mx-5
+		.showcase_container.d-flex.justify-content-center.flex-wrap(style="padding: 30px 30px")
+			.card(style='width: 18rem;').mx-lg-3.my-3
 				a(href='/missingPerson')
 					img.card-img-top(src="../images/person.jpg" style="object-fit:cover;" alt='Person')
 					a.btn(href='/missingPerson') PERSON 
-			.card(style='width: 18rem;').mx-5
-				a(href="")
+			.card(style='width: 18rem;').mx-lg-5.my-3
+				a(href="/missingPet")
 					img.card-img-top(src='../images/cat-and-dog-happy.jpg' style="object-fit:cover;" alt='pet')
-					a.btn.btn-light(href='#') PETs
-	br
-	br
-	h2 Articles
+					a.btn.btn-light(href='/missingPet') PETs
+	h2 Recent Articles
 	-var art = articles.length -1;
 	.p-4.showcase_container
 		ul.list-group
@@ -22,21 +21,21 @@ block content
 				while art >=0
 					if art > articles.length-3
 						li.list-group-item.f-container.py-3.m-1(style="border-radius:5px;")
-							a(href='/articles/'+articles[art]._id,style="display:inline-block;width:100%;font-weight:600;font-size:18px").text-dark= articles[art].title
+							a(href='/articles/'+articles[art]._id,style="display:inline-block;width:100%;font-weight:600;font-size:17 px").text-dark= articles[art].title
 								//- span.badge.badge-pill.badge-info#lastest_item(style="border-radius:5px" font-size="16px").mr-3 Latest
 								img(src="../images/recent.gif" alt="Recent" style="height:30px;width:30px;border-radius:50%;float:right")
 
 					else
 						li.list-group-item.f-container.py-3.m-1(style="border-radius:5px;")
-							a(href='/articles/'+articles[art]._id,style="display:inline-block;width:100%;font-weight:600;font-size:18px").text-dark= articles[art].title
+							a(href='/articles/'+articles[art]._id,style="display:inline-block;width:100%;font-weight:600;font-size:17 px").text-dark= articles[art].title
 					-var art = art-1;
 			else
 				while articles.length -11 <art
 					if art > articles.length-3
 						li.list-group-item.f-container.py-3.m-1(style="border-radius:5px;")
-							a(href='/articles/'+articles[art]._id,style="display:inline-block;width:100%;font-weight:600;font-size:18px").text-dark= articles[art].title
+							a(href='/articles/'+articles[art]._id,style="display:inline-block;width:100%;font-weight:600;font-size:17 px").text-dark= articles[art].title
 								span.badge.badge-pill.badge-info#lastest_item Latest
 					else
 						li.list-group-item.f-container.py-3.m-1(style="border-radius:5px;")
-							a(href='/articles/'+articles[art]._id,style="display:inline-block;width:100%;font-weight:600;font-size:18px").text-dark= articles[art].title
+							a(href='/articles/'+articles[art]._id,style="display:inline-block;width:100%;font-weight:600;font-size:17 px").text-dark= articles[art].title
 					-var art = art-1;

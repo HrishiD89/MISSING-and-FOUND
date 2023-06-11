@@ -1,0 +1,65 @@
+extends layout
+
+
+block content
+    if Photoerror
+        div(class="alert alert-danger") #{Photoerror}
+    h1 Add Missing Pet
+    .f-container.p-4
+        form(method='POST' action='/pet/missingPet/'+user._id enctype="multipart/form-data")
+            #form-group
+                label Name*:
+                input.form-control(name="name" type='text')
+            #form-group 
+                label Species*: 
+                input.form-control(name="species" type='text')
+            #form-group 
+                label Breed*: 
+                input.form-control(name="breed" type='text')
+            #form-group
+                label Gender*:
+                select.form-control(name="gender" id="gender")
+                    option(value="male" selected) Male
+                    option(value="female") Female
+                    option(value="na") Not Applicable
+            #form-group
+                label Size*:
+                select.form-control(name="size" id="size")
+                    option(value="small" selected) Small
+                    option(value="medium") Medium
+                    option(value="male") Male
+            #form-group
+                label Age(years)*:
+                input.form-control(name="age" type='number' )
+            #form-group
+                label Color(s)*:
+                input.form-control(name="colors" type='text' )
+            #form-group
+                label Location last seen*:
+                input.form-control(name="locationLastSeen" type='text')
+            #form-group
+                label Country:
+                input.form-control(name="country" type='text')
+            #form-group
+                label City :
+                input.form-control(name="city" type='text')    
+            #form-group
+                label Date of Missing:
+                input.form-control(name="dateOfMissing" type='date')
+            #form-group
+                label Current Status*:
+                select.form-control(name="currentStatus" id="currentStatus")
+                    option(value="missing" selected) Missing
+                    option(value="found") Found
+            #form-group
+                label Description:
+                textarea.form-control(name="description")
+            .form-group
+                label Image
+                input#input-files.form-control-file.border(type='file' name='file')
+            .row
+                .col-sm-12
+                    .preview-images
+                        img#Profile_Image
+            br
+            input.btn.btn-primary(type='submit' value='Submit')

@@ -12,17 +12,31 @@
         object-fit: cover;
       }
 .bg1{
-	/*background:transparent url('../mpf/missing_person.jpg') no-repeat center center /cover;*/
-	background:transparent url('../mpf/bg4.png') no-repeat center center /cover;
+	/* background:transparent url('../mpf/bg4.png') no-repeat center center /cover; */
+    background-color: #143348;
+    /* color: rgb(32, 30, 30); */
 }
 .bg4{
-    background:transparent url('../mpf/bg4.png') no-repeat center center /cover;
-}
-.f-container{
-    background-image: url('../mpf/container-background.png');
-    border-radius: 12px;
+    /* background:transparent url('../mpf/bg4.png') no-repeat center center /cover; */
+    background-color:   #143348;
 }
 
+.f-container{
+    background-color: #f2f2f0;
+    border-radius: 12px;
+}
+.adminbg1{
+background-color: #42c2ff;
+}
+.view_article-img{
+    object-fit: cover;
+}
+.reportviewimg{
+    object-fit:contain;
+    margin-top:50px;
+    border:3px solid skyblue;
+    background:white;
+}
 footer {
   width: 100%;
   background-color:#007bff;
@@ -60,6 +74,15 @@ h4{
     background-color: rgba(14, 11, 22,0.5);
     opacity: .7;
 }
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .manage-article-link {
+    margin-left: auto;
+  }
+  
 #header{
 	z-index:-1;
 	margin-top:-30px;
@@ -104,9 +127,6 @@ padding-right: 0 !important;
 white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
-}
-.card{
-	
 }
 #lastest_item{
 	position: absolute;
@@ -177,6 +197,8 @@ text-overflow: ellipsis;
    		height: 80vh;
 }
 }
+
+
 #person_search_pageForm{
     position:relative;
 }

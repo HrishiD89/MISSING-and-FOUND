@@ -1,0 +1,22 @@
+extends admin
+
+block header
+
+block content   
+    .flex-container
+        h1.text-center(style="text-decoration:underline")= article.title
+        h1
+            a(href="/admin/manage-article" class="manage-article-link") Back
+    .bg-light.p-4.rounded-3
+        br
+        if article.file != null
+            img(src="/uploads/article/"+article.file style="width:100%;height:500px;display:block;margin-left:auto;margin-right:auto;object-fit:cover")
+        br
+        p
+            != article.body.replace(/\n/g, "<br>")
+        hr
+        h6.text-info Posted by #{author}
+        hr
+        //- if user.id == article.author
+        //- 	a.btn.btn-success.mr-4(href='/articles/edit/'+article._id style="color:white") Edit
+        //- 	a.btn.btn-danger.delete-article(href="#", data-id= article._id style="color:white") Delete	

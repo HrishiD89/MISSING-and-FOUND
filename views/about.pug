@@ -1,57 +1,52 @@
 extends layout
 
 block header
-	#About_Header
-		h1(style="display:table-cell;text-align: center").align-middle About Us
+
 block content
-	h2 About MPF
+	h2 About 
+		span(style="color:#028aa8") MISSING & FOUND
 	.bg-light.p-4
 		p
-			| MissingPersonFinder Website is built for Software Engineering 6th Semester OOAD (Object Oriented Analysis and Design) Project assigned by Sir Yasir Hafeez (Professor at 
-			a(href='https://www.uaar.edu.pk/', target='_blank', style='color:blue')  PMAS UAAR 
-			| ). This website is built with all the Software Engineering Documentations. Code and Documentation of the site can be found on GitHub.
-			br
-			| 	This website has many security issues, needs to be fixed in furthur versions. You can contribute in the developement of this platform by pointing bugs and sending your suggestions.
-		h2 Problem Statement
+			|The Missing & Found project is a culmination of our efforts as a team of three Computer Science Engineering students  
+			|and thanks to the guidance of our project guide 
+			a(href='http://erp.dbuniversity.ac.in/emplist/viewprofile.php?id=27#about' target='_blank' style='color:blue') Dr.Gypsy Nandi Mam 
+			| from 
+			a(href='https://www.dbuniversity.ac.in/' target='_blank' style='color:blue')  Assam Don Bosco University.
+			|  As part of our 6th-semester minor project, we have embarked on a mission to create a solution that aids in locating missing loved ones and pets. Our project aims to harness the power of technology to address the distressing situations that arise when someone dear to us or a beloved pet goes missing.
+		h2(style="color:#028aa8")  Problem Statement
 		p
-			| One of the greatest fears of person is to lost their relatives. Each year approximately
-			| 609,275 peoples gets lost in USA. In some cases, lost person gets found easily, but in some
-			| critical cases missing persons are never reunited with their relatives. Finding lost person can be
-			| difficult task. The currently available Manual System for finding missing person have very long
-			| procedure and takes more time. More time is requiring for launching a FIR (First Information
-			| Report) in police station. Also, time required for finding lost person is more. During manual
-			| process number of manpower for searching lost person is less. And in some missing person
-			| related website they required FIR No for upload complaint on their website.
-		h2 Proposed Solution
+			|The Issue of missing loved ones and pets is serious, with thousands of people and animals going 
+			|missing each year. Searching for missing loved ones and pets can be time-consuming and overwhelming,
+			| as information is frequently dispersed across multiple websites, social media platforms, and local
+			| authorities. This makes it difficult for people to keep track of all the different avenues through 
+			|which they must search and report, increasing the likelihood of missing critical information.
+			| Furthermore, many people may be confused and frustrated because they do not know where to begin
+			| their search or how to report a missing person or pet. Missing and found seeks to address these 
+			|concerns by providing a centralised platform for reporting and searching for missing people and pets.
+		h2(style="color:#028aa8")  Proposed Solution
 		p
-			| To overcome these drawbacks, we are developing Proposed System as "Missing Person Finder
-			| (MPF)". This web application will basically be developed in Node.js and Express to perform all the tasks that
-			| previous system can perform all functionalities that are provided by existing applications as well
-			| as it gives additional feature to user. It will be for all web browsers which support all the online
-			| Platforms. We got idea about how interface should be for adding new complaint (How add
-			| complaint form user) from this web application. Proposed System will contain following
-			| features:
+			|To overcome these drawback,we are developing Proposed Sysytem as "MISSING & FOUND" 
+			|We developed this web application using Node.js and Express.js to perform the server task and 
+			|used MongoDb as a Database to store and retrieve data and the proposed sysytem will have the following 
+			|features: 
 		ul
-			li Display Information about missing person.
+			li Display Information about missing person and pets.
 			li Adding new complaint.
-			li Searching person by particular attribute such as name, location etc.
+			li Inform the user who posted through email if you found.
 			li Display information of person found
-			li Post articles.
+			li Post and View Articles.
 		p
-		h2 Contact the Development Team
-		p
-			| You can share suggestions, ask questions and report any bug in the site. Your participation will be highly appreciated and you'll get the credits for what you share with us. 
+
+		h6.bg-info(style="font-family:san-serif;font-size:20px; font-family: 'Roboto Condensed', sans-serif;").text-light.text-center.pt-4
+			| Developed By :
 			br
 			br
-			a(href="mailto:AsifMahsud543@gmail.com" target="_blank").btn.btn-primary.mr-4.text-light Contact by Mail Now
-			a(href="tel:+923425106510" target="_blank").btn.btn-primary.text-light Call Now
-		hr
-		h6.bg-info.text-light.text-center.pt-4
-			| Help Us in the Development and maintainence of the non-profit website. 
+			a(href='#' target='_blank' style='color:#0E0B16') Hrishikesh Kalita
 			br
-			| Donate money to help people in finding their dears.
+			a(href='#' target='_blank' style='color:#0E0B16') Kabir Ahmed 
+			br
+			a(href='#' target='_blank' style='color:#0E0B16') Aman Kumar Thapa
 			br
 			br
-			span 
-				a(href="mailto:AsifMahsud543@gmail.com" target="_blank" style="font-weight:bold").btn.btn-warning.text-light.mb-4 Contact Us for Donation
+
 		hr

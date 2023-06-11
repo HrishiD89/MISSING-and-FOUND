@@ -1,0 +1,73 @@
+extends layout
+
+block header
+    //- #AMP_header
+    //- 	h1(style="display:table-cell;text-align: center").align-middle #{title}dawdwa
+
+block content
+    h1 Edit Pet
+    .bg-light.p-4
+        form(method='POST' action='/pet/editPet/'+pet._id enctype="multipart/form-data")
+            #form-group
+                label Name*:
+                input.form-control(name="name" type='text' value=pet.Name)
+            #form-group
+                label Gender*:
+                select.form-control(name="gender" id="gender")
+                    option(value="male") Male
+                    option(value="female") Female
+                    option(value="na") Not Applicable
+            #form-group
+                label Size*:
+                select.form-control(name="size" id="size")
+                    option(value="small" selected) Small
+                    option(value="medium") Medium
+                    option(value="male") Large
+            #form-group
+                label Age (years)*:
+                input.form-control(name="age" type='number' value=pet.Age)
+            #form-group
+                label Color(s)*:
+                input.form-control(name="colors" type='text' value=pet.Color)
+            #form-group 
+                label Breed*: 
+                input.form-control(name="breed" type='text' value=pet.Breed)
+            #form-group 
+                label Species*: 
+                input.form-control(name="species" type='text' value=pet.Species)
+            #form-group
+                label Country*:
+                input.form-control(name="country" type='text' value=pet.Country)
+            #form-group
+                label City*:
+                input.form-control(name="city" type='text' value=pet.City)
+            #form-group
+                label Current Status*:
+                select.form-control(name="currentStatus" id="currentStatus")
+                    option(value="missing") Missing
+                    option(value="found") Found
+            #form-group
+                label Description:
+                textarea.form-control(name="description")=pet.Description
+            .form-group
+                label Image
+                input#input-files.form-control-file.border(type='file' name='file')
+            .row
+                .col-sm-12
+                    .preview-images
+                        if pet.Image === null
+                            if pet.Gender == "female"
+                                img(src="/mpf/missing_female.png")#Profile_Image
+                            else
+                                img(src="/mpf/missing_male.jpg")#Profile_Image
+                        else
+                            img(src="/uploads/missing_pet/"+pet.Image)#Profile_Image
+            br
+            input(type="text" value=pet.Image name="fileCheck" style="display:none")
+            input.btn.btn-primary(type='submit' value='Submit')
+            a(href=`/person/edit/missing/${user._id}` type="button" role="button" aria-pressed="true" style="color:white;margin: 0 10px").btn.btn-warning Discard
+            a(href=`/pet/deletePet/${pet._id}` type="button" role="button" aria-pressed="true" style="color:white;").btn.btn-danger Delete
+    script
+        document.getElementById("gender").value ='#{pet.Gender}';
+        document.getElementById("size").value ='#{pet.Size}';
+        document.getElementById("currentStatus").value ='#{pet.CurrentStatus}';

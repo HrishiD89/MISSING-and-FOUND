@@ -1,0 +1,108 @@
+extends layout
+block header
+    br
+block content
+    - var n = pet.length -1;
+
+    h2(style="text-align:center") MISSING PET
+    .showcase_container.p-4.border.border-light.rounded.py-2 
+        br
+        .card-deck
+            .row
+                if n < 4
+                    while n >= 0
+                        .card.bg-dark
+                            span.badge.badge-pill.badge-danger#lastest_item Recent
+                            //- img(src="../images/recent.gif" alt="Recent" style="position:absolute;height:40px;width:40px;border-radius:50%;")
+                            if pet[n].Image==undefined
+                                img.reportviewimg.card-img-top(src='/images/noimgpet.jpg', alt=pet[n].Name)
+                            else
+                                img.reportviewimg.card-img-top(src='/uploads/missing_pet/'+pet[n].Image, alt=pet[n].Name)
+                            .card-body
+                                h5.card-title=pet[n].Name
+                                ul.list-group.list-group-flush.myList
+                                    li.list-group-item.bg-dark.text-light Breed: #{pet[n].Breed}
+                                    li.list-group-item.bg-dark.text-light Age: #{pet[n].Age}
+                                    //- li.list-group-item.bg-dark.text-light Color: #{pet[n].Color}
+                                    li.list-group-item.bg-dark.text-light Status: 
+                                        if pet[n].CurrentStatus == "missing"
+                                            span.badge.badge-warning Missing
+                                        else
+                                            span.badge.badge-success Found	
+
+                            //- if user posted the report don't show investigate for him
+                            -if (user._id.toString() !== pet[n].Author.toString())
+                                .card-footer(style="background:white")
+                                    a(href="/pet/"+pet[n]._id style="color:white;margin-left:50px").btn.btn-primary
+                                        span.fa.fa-search
+                                        |  INVESTIGATE
+                            -else
+                                //- .card-footer.bg-light
+                                //- 	a(href="/person/"+person[n]._id style="color:white; display: none;").btn.btn-primary
+                                //- 		span.fa.fa-search
+                                //- 		|  INVESTIGATE
+                        -var n=n-1;
+                if n > 11
+                    while pet.length -13 < n
+                        .col-sm-12.col-md-6.col-lg-4.col-xl-3.mb-4
+                            .card.bg-dark
+                                if n > pet.length -5
+                                    span.badge.badge-pill.badge-danger#lastest_item Recent
+                                if pet[n].Image==undefined
+                                    img.reportviewimg.card-img-top(src='/images/noimgpet.jpg', alt=pet[n].Name)
+                                else
+                                    img.reportviewimg.card-img-top(src='/uploads/missing_pet/'+pet[n].Image, alt=pet[n].Name)
+                                .card-body
+                                    h5.card-title=pet[n].Name
+                                    ul.list-group.list-group-flush.myList
+                                        li.list-group-item.bg-dark.text-light Breed: #{pet[n].Breed}
+                                        li.list-group-item.bg-dark.text-light Age: #{pet[n].Age}
+                                        //- li.list-group-item.bg-dark.text-light Color: #{pet[n].Color}
+                                        li.list-group-item.bg-dark.text-light Status: 
+                                            if pet[n].CurrentStatus == "missing"
+                                                span.badge.badge-warning Missing
+                                            else
+                                                span.badge.badge-success Found	
+                                -if (user._id.toString() !== pet[n].Author.toString())
+                                    .card-footer(style="background:white")
+                                        a(href="/pet/"+pet[n]._id style="color:white;margin-left:50px").btn.btn-primary
+                                            span.fa.fa-search
+                                            |  INVESTIGATE
+                                -else
+                                    //- .card-footer.bg-light
+                                    //- 	a(href="/person/"+person[n]._id style="color:white; display: none;").btn.btn-primary
+                                    //- 		span.fa.fa-search
+                                    //- 		|  INVESTIGATE
+                        -var n=n-1;
+                else
+                    while n >= 0
+                        .col-sm-12.col-md-6.col-lg-4.col-xl-3.mb-4
+                            .card.bg-dark.rounded-5
+                                if n > pet.length -3
+                                    span.badge.badge-pill.badge-danger#lastest_item Recent
+                                if pet[n].Image==undefined
+                                    img.reportviewimg.card-img-top(src='/images/noimgpet.jpg', alt=pet[n].Name)
+                                else
+                                    img.reportviewimg.card-img-top(src='/uploads/missing_pet/'+pet[n].Image, alt=pet[n].Name)
+                                .card-body
+                                    h5.card-title=pet[n].Name
+                                    ul.list-group.list-group-flush.myList
+                                        li.list-group-item.bg-dark.text-light Breed: #{pet[n].Breed}
+                                        li.list-group-item.bg-dark.text-light Age: #{pet[n].Age}
+                                        //- li.list-group-item.bg-dark.text-light Color: #{pet[n].Color}
+                                        li.list-group-item.bg-dark.text-light Status: 
+                                            if pet[n].CurrentStatus == "missing"
+                                                span.badge.badge-warning Missing
+                                            else
+                                                span.badge.badge-success Found	
+                                -if (user._id.toString() !== pet[n].Author.toString())
+                                    .card-footer(style="background:white")
+                                        a(href="/pet/"+pet[n]._id style="color:white;margin-left:50px").btn.btn-primary
+                                            span.fa.fa-search
+                                            |  INVESTIGATE
+                                -else
+                                    //- .card-footer.bg-light
+                                    //- 	a(href="/person/"+person[n]._id style="color:white; display: none;").btn.btn-primary
+                                    //- 		span.fa.fa-search
+                                    //- 		|  INVESTIGATE
+                        -var n=n-1;
